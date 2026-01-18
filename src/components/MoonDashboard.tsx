@@ -56,7 +56,7 @@ export function MoonDashboard() {
         
         // O axios já pode receber o tipo genérico <AstronomyResponse>
         const response = await axios.get<AstronomyResponse>(
-          `http://api.weatherapi.com/v1/astronomy.json?key=${API_KEY}&q=${lat},${lon}`
+          `https://api.weatherapi.com/v1/astronomy.json?key=${API_KEY}&q=${lat},${lon}`
         );
         
         setMoonData(response.data);
