@@ -52,4 +52,4 @@ O projeto utiliza a **Geolocalização do navegador** para entregar dados precis
 
 1. Clone o repositório:
    ```bash
-   git clone [https://github.com/SEU-USUARIO/lunadashboard.git](https://github.com/SEU-USUARIO/lunadashboard.git)
+   git clone https://github.com/maikelensalles/luna-dashboard.git
