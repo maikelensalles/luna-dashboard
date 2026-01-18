@@ -1,73 +1,55 @@
-# React + TypeScript + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+  # 🌑 Luna Dashboard
 
-Currently, two official plugins are available:
+  ### Monitoramento de fases lunares e dados astronômicos em tempo real.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  <p align="center">
+    <a href="https://lunadashboard.web.app/">
+      <img src="https://img.shields.io/badge/DEMO-VER%20ONLINE-7b53a4?style=for-the-badge&logo=firebase" alt="Ver Demo Online">
+    </a>
+  </p>
 
-## React Compiler
+  <p align="center">
+    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+    <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+    <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white" alt="Sass" />
+    <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+    <img src="https://img.shields.io/badge/WeatherAPI-orange?style=for-the-badge" alt="API" />
+  </p>
+</div>
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🖼️ Preview
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+> Um dashboard imersivo com design Glassmorphism que consome dados astronômicos baseados na localização do usuário.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 💡 Sobre o Projeto
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+O **Luna Dashboard** é uma aplicação web desenvolvida para entusiastas da astronomia e observadores do céu. O objetivo foi criar uma interface moderna e responsiva que traduzisse dados complexos de API (como iluminação, nascer/pôr da lua) em uma experiência visual agradável.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+O projeto utiliza a **Geolocalização do navegador** para entregar dados precisos para a cidade exata do usuário.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### ✨ Funcionalidades
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- 📍 **Geolocalização Automática:** Detecta a latitude/longitude do usuário.
+- 🌑 **Fases em Tempo Real:** Mapeamento visual das 8 fases da lua.
+- 📊 **Dados Precisos:** Exibe porcentagem de iluminação e horários de nascer/pôr dos astros.
+- 🎨 **UI Design:** Estilo "Glassmorphism" com tema espacial e responsividade mobile.
+- 🛡️ **Type Safety:** Desenvolvimento robusto com TypeScript e Interfaces tipadas.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🛠️ Tecnologias Utilizadas
+
+- **ReactJS**: Biblioteca principal para construção da UI.
+- **TypeScript**: Para tipagem estática e segurança do código.
+- **Sass (SCSS)**: Para estilização avançada (variáveis, nesting e mixins).
+- **Vite**: Build tool para desenvolvimento rápido.
+- **Axios**: Consumo da WeatherAPI.
+- **Firebase Hosting**: Hospedagem e deploy contínuo.
+
+## 🚀 Como rodar o projeto localmente
+
+1. Clone o repositório:
+   ```bash
+   git clone [https://github.com/SEU-USUARIO/lunadashboard.git](https://github.com/SEU-USUARIO/lunadashboard.git)
