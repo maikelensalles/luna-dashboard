@@ -1,0 +1,17 @@
+/* App.css limpo */
+
+/* Garante que o container principal ocupe 100% da tela */
+#root {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left; /* Tira o alinhamento central forçado */
+}
+
+/* Remove margens padrões do navegador para não ficar borda branca */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #000; /* Fundo preto preventivo */
+}

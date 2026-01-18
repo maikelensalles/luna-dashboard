@@ -1,0 +1,205 @@
+/* src/styles/moon.scss */
+
+// 1. Importando fontes modernas (Inter para textos, Space Mono para dados)
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Mono:wght@400;700&display=swap');
+
+// Variáveis de Cor (para facilitar ajustes)
+$bg-dark: #050507;
+$bg-gradient: radial-gradient(circle at 50% 0%, #1a1a2e 0%, #050505 70%);
+$card-bg: rgba(20, 20, 25, 0.6);
+$glass-border: 1px solid rgba(255, 255, 255, 0.08);
+$primary-glow: #a78bfa;
+$text-main: #ffffff;
+$text-muted: #94a3b8;
+
+.moon-container {
+  min-height: 100vh;
+  width: 100%;
+  background: $bg-gradient;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-main;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  overflow: hidden;
+
+  // Efeito de "Nébula" no fundo (Opcional, mas fica lindo)
+  &::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: 20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.08) 0%, transparent 70%);
+    filter: blur(80px);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .moon-card {
+    position: relative;
+    z-index: 10;
+    background: $card-bg;
+    backdrop-filter: blur(20px); // Vidro fosco potente
+    -webkit-backdrop-filter: blur(20px);
+    border: $glass-border;
+    border-top: 1px solid rgba(255, 255, 255, 0.15); // Luz vindo de cima
+    padding: 3.5rem;
+    border-radius: 32px;
+    
+    // Deixamos o card mais largo para caber o grid
+    width: 90%;
+    max-width: 550px; 
+    
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6), inset 0 0 20px rgba(255,255,255,0.02);
+    text-align: center;
+    transition: transform 0.3s ease;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding-bottom: 1.5rem;
+
+      h2 { 
+        margin: 0; 
+        font-size: 1rem; 
+        text-transform: uppercase; 
+        letter-spacing: 2px; 
+        color: $primary-glow; 
+        font-weight: 600; 
+      }
+      
+      .location-badge { 
+        font-size: 0.85rem; 
+        color: $text-muted; 
+        background: rgba(255,255,255,0.05);
+        padding: 6px 12px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+    }
+
+    .main-display {
+      margin-bottom: 3rem;
+
+      .moon-icon-wrapper {
+        font-size: 7rem; // Ícone grande
+        line-height: 1;
+        margin-bottom: 1.5rem;
+        color: #e2e8f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        // O pulo do gato: Glow suave no ícone
+        filter: drop-shadow(0 0 30px rgba(167, 139, 250, 0.3));
+        animation: float 6s ease-in-out infinite;
+      }
+      
+      .phase-title { 
+        font-size: 2.5rem; // Título grande
+        margin: 0.5rem 0; 
+        font-weight: 300; // Fonte fina = elegância
+        letter-spacing: -1px;
+        background: linear-gradient(to bottom, #fff, #ccc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      
+      .phase-desc { 
+        color: $text-muted; 
+        font-size: 1rem; 
+        line-height: 1.5;
+        max-width: 80%;
+        margin: 0 auto;
+      }
+    }
+
+    // Grid Moderno (Lado a Lado)
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); // 3 Colunas iguais
+      gap: 1rem;
+      text-align: left;
+      
+      .stat-box {
+        background: rgba(0,0,0,0.2);
+        padding: 1.2rem;
+        border-radius: 16px;
+        border: 1px solid rgba(255,255,255,0.03);
+        transition: background 0.3s;
+
+        &:hover {
+          background: rgba(255,255,255,0.03);
+          border-color: rgba(255,255,255,0.1);
+        }
+        
+        span { 
+          display: block; 
+          font-size: 0.7rem; 
+          text-transform: uppercase; 
+          letter-spacing: 1px; 
+          color: #64748b; 
+          margin-bottom: 8px; 
+        }
+        
+        strong { 
+          font-family: 'Space Mono', monospace; // Fonte técnica
+          font-size: 1.1rem; 
+          color: #f1f5f9; 
+          display: block;
+        }
+
+        // Caso especial para a barra de iluminação ocupar 3 colunas no mobile ou se quiser destaque
+        &.full-width {
+            grid-column: span 3;
+        }
+        
+        .progress-bar {
+          margin-top: 10px;
+          height: 6px;
+          background: #222;
+          border-radius: 10px;
+          overflow: hidden;
+          position: relative;
+          
+          div {
+            height: 100%;
+            background: linear-gradient(90deg, #a78bfa, #8b5cf6);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(139, 92, 246, 0.5); // Barra brilhante
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .moon-container .moon-card {
+        padding: 2rem;
+        margin: 20px;
+        width: 92%;
+        
+        .main-display .phase-title {
+            font-size: 2rem;
+        }
+
+        .stats-grid {
+            grid-template-columns: 1fr; // Vira lista no celular
+        }
+    }
+}
